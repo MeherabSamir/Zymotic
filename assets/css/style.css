@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+:root {
+  --green1:rgba(107,183,86,0.95);
+  --green2: rgba(0,143,104,0.95);
+  --green3:#013948;
+  --green4:#011c23;
+  --white:#ffffff;
+  --black1:#000000;
+  --black2:#333333;
+  --black3:#666666;
+  --black4:#232526;
+  --black5:#414345;
+  --yellow:#ffc600;
+}
+
+.light {
+  --bg-1:var(--green1);
+  --bg-2:var(--green2);
+  --heading-color: var(--green2);
+  --text-primary: var(--black3);
+  --text-secondary: var(--white);
+  --text-tertiary: var(--black2);
+}
+
+.dark {
+  --bg-1:var(--black4);
+  --bg-2:var(--black5);
+  --heading-color: var(--black5);
+  --text-primary: var(--black3);
+  --text-secondary: var(--white);
+  --text-tertiary: var(--black2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  transition: .3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+  background: linear-gradient(to right, var(--bg-1), var(--bg-2));
+  padding-bottom: 50px;
+  clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
+  color: var(--text-secondary);
+}
+
+header .nav {
+  padding: 10px 20px;
+}
+
+header .nav .nav__items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .nav .nav__items .nav__item h2 {
+  font-size: clamp(1.5rem, 2.5vw, 1.7rem);
+}
+
+header .nav .nav__items .nav__item .checkbox {
+  display: none;
+}
+
+header .nav .nav__items .nav__item label {
+  background: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+  height: 26px;
+  width: 50px;
+  align-items: center;
+  border-radius: 50px;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+header .nav .nav__items .nav__item label .circle {
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  background: linear-gradient(to top, var(--bg-1), var(--bg-2));
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: .2s;
+}
+
+header .nav .nav__items .nav__item label .fa-moon {
+  color: var(--text-primary);
+}
+
+header .nav .nav__items .nav__item label .fa-sun {
+  color: var(--yellow);
+}
+
+header .nav .nav__items .nav__item .checkbox:checked + label .circle {
+  transform: translateX(24px);
+}
+
+header .hero__area {
+  text-align: center;
+  margin: 75px 0 80px;
+}
+
+header .hero__area .hero__image {
+  width: 120px;
+  margin: 0 auto;
+}
+
+header .hero__area .hero__image img:hover {
+  animation: hue-rotate 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes hue-rotate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+header .hero__area .hero__text h1 {
+  font-size: clamp(25px, 2.7vw, 40px);
+}
+
+header .hero__area .hero__text p {
+  font-size: clamp(15px, 2.5vw, 20px);
+}
+
+/* Main Styles */
+main .blog__section .blog__single {
+  padding: 0 20px;
+  margin-top: 15px;
+}
+
+main .blog__section .blog__header {
+  font-size: clamp(1.5rem, 2.5vw, 1.7rem);
+  color: var(--heading-color);
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+main .blog__section .blog__desc {
+  font-size: clamp(17px, 1.2vw, 20px);
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* Footer Styles */
+footer {
+  color: var(--text-tertiary);
+  padding: 10px 0;
+  text-align: center;
+}
+
+footer .footer__desc {
+  font-size: clamp(15px, 1.2vw, 18px);
+}
+
+footer .footer__desc .footer__link {
+  color: var(--heading-color);
+  font-weight: 700;
+}
+
+.scroll__to__top {
+  position: fixed;
+  right: -50px;
+  bottom: 30px;
+  background: linear-gradient(to left, var(--bg-1), var(--bg-2));
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  transition: .3s;
+}
+
+.scroll__to__top i {
+  color: var(--text-secondary);
+  vertical-align: middle;
+  padding: 10px 0;
+  font-size: 25px;
+}
+
+.scroll__to__top.active {
+  right: 20px;
+}
